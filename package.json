@@ -6,13 +6,16 @@
   "scripts": {
     "start": "node server.js",
     "start:dev": "NODE_ENV=development nodemon server.js",
-    "start:prod": "NODE_ENV=production nodemon server.js"
+    "start:prod": "NODE_ENV=production nodemon server.js",
+    "import-dev-data": "node dev-data/data/import-dev-data.js --import",
+    "delete-dev-data": "node dev-data/data/import-dev-data.js --delete"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.9"
+    "mongoose": "^5.10.9",
+    "slugify": "^1.4.5"
   }
 }

@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const globalErrorHandler = require('./controllers/errorController');
 const projectRouter = require('./routes/projectRoutes');
 const userRouter = require('./routes/userRoutes');
+const skillRouter = require('./routes/skillRoutes');
 const AppError = require('./utils/AppError');
 
 const app = express();
@@ -27,6 +28,9 @@ app.use('/api/v1/projects', projectRouter);
 
 // User router
 app.use('/api/v1/users', userRouter);
+
+// Skill router
+app.use('/api/v1/skills', skillRouter);
 
 // 3) Global error handling middlewares
 

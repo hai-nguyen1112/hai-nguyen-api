@@ -64,6 +64,7 @@ const userSchema = new mongoose.Schema(
     passwordChangedAt: Date,
     passwordResetToken: String,
     passwordResetExpires: Date,
+    skills: [{ type: mongoose.Schema.ObjectId, ref: 'Skill' }],
   },
   {
     toJSON: { virtuals: true }, // this is to enable adding virtual fields to the response

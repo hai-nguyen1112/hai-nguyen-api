@@ -4,7 +4,7 @@
     "name": "Hai Nguyen",
     "email": "hainguyen871112@gmail.com",
     "password": "12345678",
-    "passwordConfirmation": "12345678",
+    "passwordConfirm": "12345678",
     "photo": "haiavatar.jpg",
     "role": "admin",
     "intro": "I was born and raised in Chau Doc, a small town located on the Mekong Delta in the South of Vietnam, where you can spot countless floating houses, tons of motorbikes on streets and endless green rice fields. I came to the US in 2015 and graduated Summa Cum Laude with an Associate's degree in Cybersecurity in 2018. Right after finishing college, I attended a coding bootcamp at Flatiron School to learn full stack web development. I completed the bootcamp in April 2019 and have been working professionally as a software engineer since then. So far, I have contributed to two major projects (one for the Washington DC Government, one for the Federal Government) and other projects. I am a lifelong learner who is always looking to acquire new techinial expertise to keep myself up to date with the nonstop evolving development industry and to add more value to my products.",
@@ -42,6 +42,18 @@
         "International Payment Officer, December 2009 - January 2014",
         "International Payment Teller, July 2009 - December 2009"
       ]
+    ],
+    "skills": [
+      "5f933af374e54222e229a503",
+      "5f933af374e54222e229a504",
+      "5f933af374e54222e229a505",
+      "5f933af374e54222e229a506",
+      "5f933af374e54222e229a507",
+      "5f933af374e54222e229a508",
+      "5f933af374e54222e229a509",
+      "5f933af374e54222e229a50a",
+      "5f933af374e54222e229a50b",
+      "5f933af374e54222e229a50c"
     ]
   }
 ]

@@ -21,7 +21,28 @@ exports.deleteOne = (Model) =>
 exports.updateOne = (Model, ...notAllowedFields) =>
   catchAsync(async (req, res, next) => {
     let filteredBody = JSON.parse(JSON.stringify(req.body));
+
     notAllowedFields.forEach((field) => delete filteredBody[field]);
+
+    console.log(filteredBody);
+
+    const updatableFields = Object.keys(Model.schema.paths).filter(
+      (field) => field !== '_id' && field !== '__v'
+    );
+    console.log(updatableFields);
+    for (const field in filteredBody) {
+      if (!updatableFields.includes(field)) {
+        delete filteredBody[field];
+      }
+    }
+
+    console.log(filteredBody);
+
+    if (Object.keys(filteredBody).length === 0) {
+      return next(
+        new AppError('You are trying to update non-existing fields!', 400)
+      );
+    }
 
     const doc = await Model.findByIdAndUpdate(req.params.id, filteredBody, {
       new: true, // This is to return the updated doc
@@ -40,11 +61,15 @@ exports.updateOne = (Model, ...notAllowedFields) =>
     });
   });
 
-exports.getOne = (Model, popOptions) =>
+exports.getOne = (Model, ...popOptions) =>
   catchAsync(async (req, res, next) => {
     let query = Model.findById(req.params.id);
 
-    if (popOptions) query = query.populate(popOptions);
+    // if (popOptions) query = query.populate(popOptions);
+
+    if (popOptions) {
+      popOptions.forEach((popOption) => (query = query.populate(popOption)));
+    }
 
     const doc = await query;
 

@@ -33,13 +33,17 @@ exports.updateOne = (Model) =>
 
     res.status(200).json({
       status: 'success',
-      data: { data: doc },
+      data: doc,
     });
   });
 
-exports.getOne = (Model) =>
+exports.getOne = (Model, popOptions) =>
   catchAsync(async (req, res, next) => {
-    const doc = await Model.findById(req.params.id);
+    let query = Model.findById(req.params.id);
+
+    if (popOptions) query = query.populate(popOptions);
+
+    const doc = await query;
 
     if (!doc) {
       return next(
@@ -49,7 +53,7 @@ exports.getOne = (Model) =>
 
     res.status(200).json({
       status: 'success',
-      data: { data: doc },
+      data: doc,
     });
   });
 
@@ -59,7 +63,7 @@ exports.createOne = (Model) =>
 
     res.status(201).json({
       status: 'success',
-      data: { data: newDoc },
+      data: newDoc,
     });
   });
 
@@ -76,6 +80,6 @@ exports.getAll = (Model) =>
     res.status(200).json({
       status: 'success',
       totalResults: docs.length,
-      data: { data: docs },
+      data: docs,
     });
   });

@@ -62,6 +62,11 @@ const projectSchema = new mongoose.Schema(
       default: Date.now(),
       select: false, // createdAt only exists in the database and not selected to appear to the API response
     },
+    user: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: [true, 'A project must belong to a user.'],
+    },
   },
   {
     toJSON: { virtuals: true }, // this is to enable adding virtual fields to the response
@@ -83,6 +88,14 @@ projectSchema.pre('save', function (next) {
 /* End of document middlewares */
 
 /* Query Middlewares - this keyword points to the current query */
+projectSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'user',
+    select: 'name photo',
+  });
+
+  next();
+});
 /* End of query middlewares */
 
 /* Aggregation Middlewares - this keyword points to the current aggregation object */

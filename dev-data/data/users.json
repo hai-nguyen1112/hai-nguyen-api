@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "5f92374f047d32e5c636c296",
+    "name": "Hai Nguyen",
+    "email": "hainguyen871112@gmail.com",
+    "password": "12345678",
+    "passwordConfirm": "12345678",
+    "photo": "haiavatar.jpg",
+    "role": "admin",
+    "intro": "I was born and raised in Chau Doc, a small town located on the Mekong Delta in the South of Vietnam, where you can spot countless floating houses, tons of motorbikes on streets and endless green rice fields. I came to the US in 2015 and graduated Summa Cum Laude with an Associate's degree in Cybersecurity in 2018. Right after finishing college, I attended a coding bootcamp at Flatiron School to learn full stack web development. I completed the bootcamp in April 2019 and have been working professionally as a software engineer since then. So far, I have contributed to two major projects (one for the Washington DC Government, one for the Federal Government) and other projects. I am a lifelong learner who is always looking to acquire new techinial expertise to keep myself up to date with the nonstop evolving development industry and to add more value to my products.",
+    "education": [
+      [
+        "Flatiron School, 1440 G St NW, Washington, DC 20005, April 2019",
+        "Full Stack Web Development, Ruby on Rails, JavaScript and React/Redux immersive program"
+      ],
+      [
+        "Northern Virginia Community College, 5000 Dawes Ave, Alexandria, VA 22311, December 2018",
+        "A.A.S. in Cybersecurity, Summa Cum Laude (4.0 final GPA)"
+      ],
+      [
+        "University of Economics Ho Chi Minh Cit (UEH), 59C Nguyen Dinh Chieu, Ward 6, District 3, Ho Chi Minh City, Vietnam, June 2009",
+        "B.B.A. in International Trade, Concentration: Business Administration"
+      ],
+      [
+        "Advanced CSS/SASS, Test Driven Development with Jest/Enzyme, TypeScript for React/Redux/Express, NodeJS and MongoDB",
+        "Certified by Udemy"
+      ],
+      ["Security+", "Certified by CompTIA, June 2018 - June 2021"]
+    ],
+    "employmentHistory": [
+      [
+        "Dovel Technologies, LLC, 1700 Rockville Pike, Suite 600, Rockville, MD 20852",
+        "Front End Developer, February 2020 - October 2020"
+      ],
+      [
+        "Netsource Interactive Inc., 1724 20th St NW, Washington, DC 20009",
+        "Front End Developer, June 2019 - December 2019"
+      ],
+      [
+        "Saigon Thuong Tin Commercial Joint Stock Bank (SACOMBANK), 266-268 Nam Ky Khoi Nghia Street, District 3, Ho Chi Minh City, Vietnam",
+        "International Payment Supervisor, January 2014 - January 2015",
+        "International Payment Officer, December 2009 - January 2014",
+        "International Payment Teller, July 2009 - December 2009"
+      ]
+    ]
+  }
+]

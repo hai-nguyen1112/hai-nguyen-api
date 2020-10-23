@@ -5,6 +5,12 @@ const handleCastErrorDB = (err) => {
 };
 
 const handleDuplicateFieldsDB = (err) => {
+  if (Object.keys(err.keyValue)[0] === 'email') {
+    return new AppError(
+      'This email aleady exists in the database. If you forgot your password, please reset password!',
+      400
+    );
+  }
   return new AppError(
     `Duplicate field value: [${Object.keys(err.keyValue)[0]}: ${
       Object.values(err.keyValue)[0]

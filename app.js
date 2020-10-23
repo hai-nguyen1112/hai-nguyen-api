@@ -3,6 +3,7 @@ const path = require('path');
 
 const globalErrorHandler = require('./controllers/errorController');
 const projectRouter = require('./routes/projectRoutes');
+const userRouter = require('./routes/userRoutes');
 const AppError = require('./utils/AppError');
 
 const app = express();
@@ -19,6 +20,9 @@ app.use(express.json({ limit: '10kb' })); // If the body of the request is large
 
 // Project router
 app.use('/api/v1/projects', projectRouter);
+
+// User router
+app.use('/api/v1/users', userRouter);
 
 // 3) Global error handling middlewares
 

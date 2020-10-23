@@ -22,12 +22,12 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true, // this makes the cookie not be modified by the browser
   };
 
-  if (process.env.NODE_ENV === 'production') {
-    cookieOptions.secure = true; // this makes the cookie sent with encryption https
-  }
+  // if (process.env.NODE_ENV === 'production') {
+  //   cookieOptions.secure = true; // this makes the cookie sent with encryption https
+  // }
 
-  // if (req.secure || req.headers('x-forwarded-proto') === 'https')
-  //   cookieOptions.secure = true; // this is for heroku only
+  if (req.secure || req.headers('x-forwarded-proto') === 'https')
+    cookieOptions.secure = true; // this is for heroku only
 
   // send the cookie back to client
   res.cookie('jwt', token, cookieOptions);

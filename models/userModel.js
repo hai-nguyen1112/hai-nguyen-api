@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema(
   {
@@ -45,15 +46,15 @@ const userSchema = new mongoose.Schema(
     },
     intro: {
       type: String,
-      required: [true, 'A user must have an introduction!'],
+      default: 'Introduction will be input later.',
     },
     education: {
       type: [[String]],
-      required: true,
+      default: [['Education will be input later.']],
     },
     employmentHistory: {
       type: [[String]],
-      required: true,
+      default: [['Employment history will be input later.']],
     },
     active: {
       type: Boolean,
@@ -82,6 +83,27 @@ userSchema.virtual('projects', {
 /* End of virtual middlewares */
 
 /* Document Middlewares - this keyword points to the current processed document */
+// This is a middleware that is used to hash the password before saving it to the database
+userSchema.pre('save', async function (next) {
+  // If the password field is not modified, we do nothing
+  if (!this.isModified('password')) return next();
+
+  // Hash the password with the code of 12
+  this.password = await bcrypt.hash(this.password, 12);
+
+  // Get rid of passwordConfirm because we don't need to store it in the database
+  this.passwordConfirm = undefined;
+
+  next();
+});
+
+// This is an instance method which is available for every document of a collection
+userSchema.methods.comparePassword = async function (
+  candidatePassword,
+  userPassword
+) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 /* End of document middlewares */
 
 /* Query Middlewares - this keyword points to the current query */

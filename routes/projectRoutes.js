@@ -1,7 +1,10 @@
 const express = require('express');
 const projectController = require('../controllers/projectController');
+const authController = require('../controllers/authController');
 
 const router = express.Router();
+
+router.use(authController.protect);
 
 router
   .route('/')
@@ -12,6 +15,6 @@ router
   .route('/:id')
   .get(projectController.getProject)
   .patch(projectController.updateProject)
-  .delete(projectController.deleteProject);
+  .delete(authController.restrictTo('admin'), projectController.deleteProject);
 
 module.exports = router;

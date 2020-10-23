@@ -6,7 +6,6 @@
     "title": "My Personal Website",
     "description": "I made this personal website for the purpose of showcasing my porfolio and skills to employers. The website itself is a showcase of my responsive web design skills. I built it from scratch using pure CSS/SASS, JavaScript and React.",
     "projectDetail": {
-      "title": "My Personal Website",
       "subTitle": "A personal project to showcase my portfolio and skills.",
       "details": [
         "Created SPA components using JavaScript/React.",
@@ -29,7 +28,6 @@
     "title": "Grantor Experience 2.0",
     "description": "As a software engineer at Dovel Technologies, I had a chance to work on the GE 2.0 project for the Federal Government. GE 2.0 is a user interface that allows grantors to view and manage grant projects. It is intuitive and user-friendly.",
     "projectDetail": {
-      "title": "Grantor Experience 2.0",
       "subTitle": "A functional, responsive and user-friendly web application that allows grantors to view and manage grant projects.",
       "details": [
         "Built the frontend using JavaScript, React framework, React Hooks.",
@@ -50,7 +48,6 @@
     "title": "CFSA Community Portal",
     "description": "CFSA Community Portal is a project that I worked on for the District of Columbia Government. It is a responsive web application that allows Washington DC social workers to input, process, update and keep track of child abuse cases.",
     "projectDetail": {
-      "title": "CFSA Community Portal",
       "subTitle": "A functional, responsive and user-friendly web application that allows social workers to manage child-abuse cases.",
       "details": [
         "Built the frontend using JavaScript and React/Redux framework.",
@@ -71,7 +68,6 @@
     "title": "Undercooked!",
     "description": "Undercooked! is a fun cooking game. I built it from scratch using JavaScript/React for the frontend, Ruby on Rails for the backend and advanced CSS for game effects. It was my graduation project from Flatiron School where I learned full stack web development.",
     "projectDetail": {
-      "title": "Undercooked!",
       "subTitle": "A competitive against-the-clock cooking challenge with a leaderboard.",
       "details": [
         "Built backend API using Ruby on Rails to handle data persistence.",
@@ -96,7 +92,6 @@
     "title": "HiAnt's BMI Calculator",
     "description": "HiAnt helps users calculate their BMI and the weight they need to lose or gain to be in the healthy range. It was one of the projects that I worked on together with a classmate at Flatiron School. We built both frontend and backend from scratch using Ruby on Rails.",
     "projectDetail": {
-      "title": "HiAnt's BMI Calculator",
       "subTitle": "A user-friendly BMI calculator, providing real-time health status, record tracking, and weight-related benchmarks",
       "details": [
         "Built both frontend and backend using Ruby following the MVC pattern.",

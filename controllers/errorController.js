@@ -24,6 +24,14 @@ const handleValidationErrorDB = (err) => {
   return new AppError(`Invalid input data. ${errorMessages.join(' ')}`, 400);
 };
 
+const handleJWTError = () => {
+  return new AppError('Invalid token. Please log in again!', 401);
+};
+
+const handleJWTExpiredError = () => {
+  return new AppError('Your token has expired. Please log in again!', 401);
+};
+
 const sendErrorDev = (err, req, res) => {
   // Check to make sure the error is API error
   // We only handle API errors because this app is pure API app
@@ -81,6 +89,15 @@ module.exports = (err, req, res, next) => {
     // Handle mongoose validation errors
     if (err._message && err._message.includes('validation')) {
       error = handleValidationErrorDB(err);
+    }
+
+    // Handle JWT errors
+    if (err.name === 'JsonWebTokenError') {
+      error = handleJWTError();
+    }
+
+    if (err.name === 'TokenExpiredError') {
+      error = handleJWTExpiredError();
     }
 
     sendErrorProd(error, req, res);

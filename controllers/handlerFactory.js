@@ -18,9 +18,12 @@ exports.deleteOne = (Model) =>
     });
   });
 
-exports.updateOne = (Model) =>
+exports.updateOne = (Model, ...notAllowedFields) =>
   catchAsync(async (req, res, next) => {
-    const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
+    let filteredBody = JSON.parse(JSON.stringify(req.body));
+    notAllowedFields.forEach((field) => delete filteredBody[field]);
+
+    const doc = await Model.findByIdAndUpdate(req.params.id, filteredBody, {
       new: true, // This is to return the updated doc
       runValidators: true, // This is to run the validators that we set in the schema
     });

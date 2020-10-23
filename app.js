@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 const globalErrorHandler = require('./controllers/errorController');
 const projectRouter = require('./routes/projectRoutes');
@@ -15,6 +16,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // This is a middleware that adds the data in the body of the API request to the req argument passed in the route handler
 app.use(express.json({ limit: '10kb' })); // If the body of the request is larger than 10kb, Express will not accept it.
+
+// This is a middleware that parses the cookie
+app.use(cookieParser());
 
 // 2) Apply the routers
 

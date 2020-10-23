@@ -32,8 +32,8 @@ const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
 // Import data into database
 const importData = async () => {
   try {
-    await User.create(users);
     await Project.create(projects);
+    await User.create(users);
     console.log('Data successfully loaded');
   } catch (err) {
     console.log(err);

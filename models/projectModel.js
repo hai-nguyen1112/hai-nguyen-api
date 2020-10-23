@@ -23,19 +23,9 @@ const projectSchema = new mongoose.Schema(
       required: [true, 'A project must have a description!'],
     },
     projectDetail: {
-      title: {
-        type: String,
-        required: [true, 'A project detail must have a title!'],
-        unique: true,
-        trim: true,
-        maxlength: [
-          22,
-          'A project title must have less than or equal to 22 chars!',
-        ],
-      },
       subTitle: {
         type: String,
-        required: [true, 'A project detail must have a title!'],
+        required: [true, 'A project detail must have a sub title!'],
         trim: true,
       },
       details: {

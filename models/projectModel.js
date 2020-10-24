@@ -32,19 +32,19 @@ const projectSchema = new mongoose.Schema(
         type: [String],
         default: [],
       },
-    },
-    gitRepoLinks: {
-      type: [String],
-      default: [],
-    },
-    demoLink: {
-      type: String,
-      default: '',
-    },
-    note: {
-      type: String,
-      trim: true,
-      default: '',
+      gitRepoLinks: {
+        type: [String],
+        default: [],
+      },
+      demoLink: {
+        type: String,
+        default: '',
+      },
+      note: {
+        type: String,
+        trim: true,
+        default: '',
+      },
     },
     slug: String,
     createdAt: {

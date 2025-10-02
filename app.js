@@ -71,6 +71,20 @@ app.use(compression());
 
 // 2) Apply the routers
 
+// Root route for health checks
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'API is running',
+    version: '1.0.0',
+    endpoints: {
+      projects: '/api/v1/projects',
+      users: '/api/v1/users',
+      skills: '/api/v1/skills',
+    },
+  });
+});
+
 // Project router
 app.use('/api/v1/projects', projectRouter);
 

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const axios = require('axios');
 
 const app = require('./app');
 
@@ -36,6 +37,15 @@ const port = process.env.PORT || 5000;
 const server = app.listen(port, () => {
   console.log(`App is running on port ${port} in ${process.env.NODE_ENV}`);
 });
+
+// Self-ping to prevent cold starts (put AFTER app.listen)
+if (process.env.NODE_ENV === 'production') {
+  setInterval(() => {
+    axios
+      .get('https://hai-nguyen-api.onrender.com')
+      .catch((err) => console.log('Ping failed:', err.message));
+  }, 14 * 60 * 1000); // Every 14 minutes
+}
 
 // This is to handle unhandled rejection errors. We must close the server and shut the app.
 process.on('unhandledRejection', (err) => {
